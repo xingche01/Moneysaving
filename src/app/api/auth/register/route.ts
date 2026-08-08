@@ -5,7 +5,10 @@ import { setSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
 const schema = z.object({
-  name: z.string().trim().min(1).max(40).optional(),
+  name: z.preprocess(
+    (value) => typeof value === "string" && !value.trim() ? undefined : value,
+    z.string().trim().min(1).max(40).optional(),
+  ),
   email: z.string().trim().email().max(120).transform((value) => value.toLowerCase()),
   password: z.string().min(8, "密码至少需要 8 位").max(72),
 });

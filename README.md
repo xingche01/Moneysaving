@@ -13,7 +13,7 @@
 
 1. 在 Neon、Supabase 或任意 PostgreSQL 服务创建数据库。
 2. 在 Vercel 项目的 Environment Variables 中添加 `DATABASE_URL` 与 `JWT_SECRET`。
-3. 导入 GitHub 仓库，Vercel 会自动执行 `npm run build`。
-4. 首次部署前，在本地或数据库服务的 SQL 工具中执行 Prisma 迁移。
+3. 导入 GitHub 仓库，Vercel 会自动执行构建与 Prisma 数据库迁移。
+4. 部署完成后，打开网址注册第一个账户即可开始记账。
 
 > 建议使用 `openssl rand -base64 32` 生成 `JWT_SECRET`。不要将 `.env` 提交到 Git。
